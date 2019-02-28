@@ -1,41 +1,13 @@
 //Mixins
-@mixin transform($transforms) {
-  -moz-transform: $transforms;
-  -o-transform: $transforms;
-  -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-  transform: $transforms;
+@mixin prefix($element, $value) {
+  -moz-#{$element}: $value;
+  -o-#{$element}: $value;
+  -ms-#{$element}: $value;
+  -webkit-#{$element}: $value;
+  #{$element}: $value;
 }
 
-@mixin perspective($perspective) {
-  -moz-perspective: $perspective;
-  -o-perspective: $perspective;
-  -webkit-perspective: $perspective;
-  perspective: $perspective;
-}
-
-@mixin transform-style($transforms) {
-  -moz-transform-style: $transforms;
-  -o-transform-style: $transforms;
-  -ms-transform-style: $transforms;
-  -webkit-transform-style: $transforms;
-  transform-style: $transforms;
-}
-
-@mixin transition($transitions) {
-  -moz-transition: $transitions;
-  -o-transition: $transitions;
-  -webkit-transition: $transitions;
-  transition: $transitions;
-}
-
-@mixin backface-visibility($visibility) {
-  -moz-backface-visibility: $visibility;
-  -o-backface-visibility: $visibility;
-  -webkit-backface-visibility: $visibility;
-  backface-visibility: $visibility;
-}
-
+//Helpers
 %center {
   margin-left: auto;
   margin-right: auto;
@@ -79,34 +51,34 @@ p {
 /*Mobile Passienja Flipper*/
 .mobile {
   .flip-container {
-    @include perspective(1000);
-    @include transform-style(preserve-3d);
+    @include prefix(perspective, 1000);
+    @include prefix(transform-style, preserve-3d);
   }
   .flip-container.hover {
     .back {
-      @include transform(rotateY(0deg));
+      @include prefix(transform, rotateY(0deg));
     }
     .front {
-      @include transform(rotateY(180deg));
+      @include prefix(transform, rotateY(180deg));
     }
   }
   .flipper {
-    @include transition(0.6s);
-    @include transform-style(preserve-3d);
+    @include prefix(transition, 0.6s);
+    @include prefix(transform-style, preserve-3d);
     position: relative;
   }
   .front {
-    @include backface-visibility(hidden);
-    @include transition(0.6s);
-    @include transform-style(preserve-3d);
-    @include transform(rotateY(0deg));
+    @include prefix(backface-visibility, hidden);
+    @include prefix(transition, 0.6s);
+    @include prefix(transform-style, preserve-3d);
+    @include prefix(transform, rotateY(0deg));
     z-index: 2;
   }
   .back {
-    @include backface-visibility(hidden);
-    @include transition(0.6s);
-    @include transform-style(preserve-3d);
-    @include transform(rotateY(180deg));
+    @include prefix(backface-visibility, hidden);
+    @include prefix(transition, 0.6s);
+    @include prefix(transform-style, preserve-3d);
+    @include prefix(transform, rotateY(180deg));
     position: absolute;
     text-align: center;
     border-left: 15px solid transparent;
@@ -121,34 +93,34 @@ p {
 @media (min-width: 480px) {
   .tablet {
     .flip-container {
-      @include perspective(1000);
-      @include transform-style(preserve-3d);
+      @include prefix(perspective, 1000);
+      @include prefix(transform-style, preserve-3d);
     }
     .flip-container.hover {
       .back {
-        @include transform(rotateY(0deg));
+        @include prefix(transform, rotateY(0deg));
       }
       .front {
-        @include transform(rotateY(180deg));
+        @include prefix(transform, rotateY(180deg));
       }
     }
     .flipper {
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
       position: relative;
     }
     .front {
-      @include backface-visibility(hidden);
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
-      @include transform(rotateY(0deg));
+      @include prefix(backface-visibility, hidden);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
+      @include prefix(transform, rotateY(0deg));
       z-index: 2;
     }
     .back {
-      @include backface-visibility(hidden);
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
-      @include transform(rotateY(180deg));
+      @include prefix(backface-visibility, hidden);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
+      @include prefix(transform, rotateY(180deg));
       position: absolute;
       text-align: center;
       border-left: 15px solid transparent;
@@ -164,34 +136,34 @@ p {
 @media (min-width: 1025px) {
   .desktop {
     .flip-container {
-      @include perspective(1000);
-      @include transform-style(preserve-3d);
+      @include prefix(perspective, 1000);
+      @include prefix(transform-style, preserve-3d);
     }
     .flip-container.hover {
       .back {
-        @include transform(rotateY(0deg));
+        @include prefix(transform, rotateY(0deg));
       }
       .front {
-        @include transform(rotateY(180deg));
+        @include prefix(transform, rotateY(180deg));
       }
     }
     .flipper {
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
       position: relative;
     }
     .front {
-      @include backface-visibility(hidden);
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
-      @include transform(rotateY(0deg));
+      @include prefix(backface-visibility, hidden);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
+      @include prefix(transform, rotateY(0deg));
       z-index: 2;
     }
     .back {
-      @include backface-visibility(hidden);
-      @include transition(0.6s);
-      @include transform-style(preserve-3d);
-      @include transform(rotateY(180deg));
+      @include prefix(backface-visibility, hidden);
+      @include prefix(transition, 0.6s);
+      @include prefix(transform-style, preserve-3d);
+      @include prefix(transform, rotateY(180deg));
       position: absolute;
       text-align: center;
       border-left: 15px solid transparent;
